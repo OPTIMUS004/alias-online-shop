@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.min.css";
+hr{
+	background-color: #eee;
+}
+.main{
+	background-color: #f1f1f1;
+}
+.btn-norm{
+	background-color: tomato;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 4px;
+}
+.form-control{
+		border-radius: 0;
+		background-clip: padding 0;
+	}

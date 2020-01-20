@@ -1,0 +1,33 @@
+<div class="container-fluid" >
+	<div class="promo ">
+		<h2 class="pl-2 pr-4 text-light">Your one stop Store<br/> For all you need<span class="red">.</span></h2>
+	</div>
+	<div class="row col-sm-10">
+		<div class="formfield" [@EnterLeave] >
+			<form #searchForm ="ngForm" id="searchForm" (ngSubmit)= "searchSessions(searchTerm)"  class="form-inline" autocomplete="off">
+				<div class="form-group">
+					<input type="text" placeholder="Search products" [(ngModel)]="searchTerm" name="searchTerm" class="form-control" />
+					<button type="submit" class="btn btn-default text-light" modal-trigger="searchBlock" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i>Search
+					</button>
+				</div>		
+			</form>
+		</div>
+	</div>
+	
+	<simple-modal elementId="searchBlock" class="modalContainer">
+		<h6>MATCHING RESULTS</h6>
+		<div class="container" *ngFor = "let found of foundSearch">	
+			<div class="modal-body" data-dismiss="modal">
+				<a class="text-dark" *ngFor="let session of foundSessions" [routerLink]="['/alias', session?.id]"  >{{session?.Title}}
+				</a>
+				<span *ngIf="foundSessions?.length===0">No such title here</span>
+			</div>
+		</div>
+	</simple-modal>
+	<hr/>
+	<h2 class="text-dark">Top Trending Products </h2>
+	<hr>	
+</div>
+<div>
+	<trending-thumbnail></trending-thumbnail>
+</div>

@@ -1,0 +1,5 @@
+export * from './welcome.component'
+export * from './trending-products/index'
+export * from './like.component'
+export * from './shared/index'
+export * from './product-details/index'

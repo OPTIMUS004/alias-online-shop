@@ -1,0 +1,28 @@
+<div class="container">
+		<h1> Edit Your Profile</h1>
+		<hr>
+		<div class="container">
+			<div class="col-md-4">
+				<form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off">
+					<div class="form-group" [ngClass]="{'error': (profileForm.controls.userName.invalid)}">
+						<label for="username" class="col-3">Username</label>
+						<em *ngIf="profileForm.controls.userName.invalid && profileForm.controls.userName.errors.required" >required</em>
+						<em *ngIf="profileForm.controls.userName.invalid && profileForm.controls.userName.errors.pattern" >
+							Must start with a letter
+						</em>
+						<input formControlName="userName" name="userName" class="form-control" type="text" placeholder="User Name..." />
+					</div>
+					<div class="form-group" [ngClass]="{'error': (profileForm.controls.password.invalid)}">
+						<label for="password">Password</label>
+						<em *ngIf="profileForm.controls.userName.invalid && profileForm.controls.password.errors.required" >required</em>
+						<em *ngIf="profileForm.controls.password.invalid && profileForm.controls.userName.errors.pattern" >
+							Must start with a letter
+						</em>
+						<input formControlName="password" name="password" class="form-control" type="password" placeholder="Password..." />
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-cancel bg-red" (click)="cancel()">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div>

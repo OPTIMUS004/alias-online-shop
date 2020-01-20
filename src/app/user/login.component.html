@@ -1,0 +1,29 @@
+		<div class="container" *ngIf="!addMode">
+			<h1>Login</h1>
+			<hr>
+			<div class="col-md-4">
+				<form [formGroup]="loginForm" (ngSubmit)="userLogin(loginForm.value)" autocomplete="off">
+					<div class="form-group" [ngClass]="{'error': (loginForm.controls.userName?.invalid && loginForm.controls.userName?.touched)}">
+						<label for="username">Username</label>
+						<em *ngIf="loginForm.controls.userName?.errors.required && loginForm.controls.userName?.touched" >required</em>
+						<input formControlName="userName" name="userName" class="form-control" type="text" placeholder="User Name..." />
+					</div>
+					<div class="form-group" [ngClass]="{'error': (loginForm.controls.password.invalid && loginForm.controls.password?.touched)}">
+						<label for="password">Password</label>
+						<em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.errors.required && loginForm.controls.password?.touched" >required</em>
+						<input formControlName="password" name="password" class="form-control" type="password" placeholder="Password..." />
+					</div>
+					<button type="submit" class="btn btn-primary">Login</button>
+					<button type="button" class="btn btn-default comment-two" (click)="cancel()">Cancel</button>
+				</form>
+				<div class="comment">					
+					<div class="comment-one">
+						<p>Don't have an account?</p>
+					</div>
+					<a (click)="showAccount()" class="comment-two">Sign Up</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<create-account *ngIf="addMode" (addMode)="toggleLogin()"></create-account>
+		</div>
