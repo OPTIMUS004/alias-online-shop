@@ -10,11 +10,12 @@
 						<div>
 							<input type="text" [(ngModel)]='listFilter'/>
 						</div>
-					</div>
+					
 					<div class="row">
 						<div>
 							<h4>Filtered by: {{listFilter}}</h4>
 						</div>
+					</div>
 					</div>
 					<div class="table-responsive">
 						<table class="table" *ngIf =" products && products.length">
@@ -35,21 +36,21 @@
 							</thead>
 							<tbody>
 								<tr *ngFor="let product of FilteredProducts">
-									<td *ngIf="product.starRating > 3.5">
+									<td>
 										<img *ngIf ="showImage" [src]='product.imageUrl' [title]='product.productName'
 										[style.width.px]= 'imageWidth'
 										[style.height.px]= 'imageHeight'
 										[style.margin.px]='imageMargin'/>
 									</td >
-									<td *ngIf="product.starRating > 3.5">{{product.productName}}</td>
-									<td *ngIf="product.starRating > 3.5">{{product.productCode | lowercase | convertToSpaces: '-'}}</td>
-									<td *ngIf="product.starRating > 3.5">{{product.releaseDate}}</td>
-									<td *ngIf="product.starRating > 3.5">{{product.price | currency: 'NG': 'symbol': '1.2-2'}}</td>
-									<td *ngIf="product.starRating > 3.5">
+									<td><a [routerLink] ="[product.productId]">{{product.productName}}</a></td>
+									<td>{{product.productCode | lowercase | convertToSpaces: '-'}}</td>
+									<td>{{product.releaseDate}}</td>
+									<td>{{product.price | currency: 'NG': 'symbol': '1.2-2'}}</td>
+									<td>
 										<star [rating]='product.starRating'
 											  (rated)='uponReceivedClick($event)'></star>
 									</td>
-									<td *ngIf="product.starRating > 3.5">
+									<td>
 										<add-remove-item (like)="toggleFavorite(product)" [liked]="userHasLiked(product)">
 										</add-remove-item>
 									</td>

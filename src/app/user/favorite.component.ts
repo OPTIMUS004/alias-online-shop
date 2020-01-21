@@ -1,32 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from './auth.service'
 import { trigger,animate,style,transition,state } from '@angular/animations'
-import { LikeComponent } from '../HomeFolder/like.component'
+
 @Component({
 	template: `
 
 	<div class="row container">
-				<h1> Favorites List</h1>
-				<hr/>
-		<div *ngFor = "let movie of movies">
-			<div class="container ">
-				<div class="row">
-					<div class="column" >
-						<div class="card">
-							<img src="{{movie?.Poster}}" alt="{{movie?.Title}}" class="col">
-							<div class="container bg-dark">
-								<h4>{{movie?.Title}}</h4>
-								<p class="title">Duration: {{movie?.Runtime}}</p>
-								<p>Release Date: {{movie?.Released}}</p>
-								<p class="btn-norm text-center mt-2" [routerLink]="['/alias',  movie.id]"><a>More Details</a></p>
-								<p *ngIf="auth?.isAuthenticated()">
-									
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		<h4>About to be urchased goes here!</h4>
+	</div>
 	`,
 	styles: [`
 				.row{
@@ -73,21 +54,10 @@ import { LikeComponent } from '../HomeFolder/like.component'
 		)]
 })
 export class FavoriteComponent {
-movies
+
 constructor( public auth:AuthService ){}
 
 ngOnInit(){
-	this.movies = this.auth.getFavorite()
-}
-toggleData(datum){
-		if(this.userHasLiked(datum)){
-			this.auth.deleteLike(datum)
-		}else{
-			this.auth.addLike(datum)
-		}
-	}
-userHasLiked(datum){
-		return this.auth.userHasLiked(datum) 
-	}
 	
+	}
 }

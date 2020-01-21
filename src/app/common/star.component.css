@@ -1,6 +1,9 @@
 .crop{
     overflow: hidden;
 }
+.fa{
+    color: goldenrod;
+}
 div {
     cursor: pointer;
 }

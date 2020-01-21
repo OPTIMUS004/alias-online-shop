@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthService } from '../user/auth.service'
+import { Router } from '@angular/router';
 
 @Component ({
 	selector: 'nav-bar',
@@ -43,7 +44,7 @@ import { AuthService } from '../user/auth.service'
 export class NavBarComponent implements OnChanges{
 	closeDropdown: boolean = false;
 	selectedItems= this.auth.isAuthenticated() ? this.auth.currentUser.favorite.length :  0;
-	constructor( public auth:AuthService){}
+	constructor( public auth:AuthService, private router: Router){}
 
 	ngOnChanges(){
 		this.selectedItems = this.auth.currentUser.favorite.length
@@ -53,5 +54,19 @@ export class NavBarComponent implements OnChanges{
 		this.closeDropdown = true;
 		console.log(this.closeDropdown)
 		this.auth.logout();
+	}
+	checkUser(): void {
+		if (this.auth.isAuthenticated() ){
+			if (this.auth.currentUser.favorite.length >= 1) {
+				this.router.navigate(['user/checkout']);
+			};
+			alert("Add items to Cart!");
+			this.router.navigate(['alias/products']);
+
+			
+		}else{
+			alert("Login and add items to cart");
+			this.router.navigate(['user/login']);
+		}
 	}
 }

@@ -15,6 +15,9 @@ import { AuthService } from './auth.service'
 					float: left;
 					display: inline-block;
 				}
+				.changeColor{
+					color: #007bff;
+				}
 				.comment-two{
 					float: right;
 				}

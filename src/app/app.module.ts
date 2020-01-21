@@ -7,15 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
         WelcomeComponent,
-        TrendingThumbnailComponent,
-        DetailsPageComponent,
+        ProductDetailsComponent,
+        ProductComponent,
         ShopService,
-        FlixListResolver,
-        FlixRouteActivator,
-        LikeComponent,
         ConvertToSpacesPipe
 
 } from './HomeFolder/index';
+import { TrendingThumbnailComponent } from './HomeFolder/trending-products/trending-thumbnail.component'
 import { AOSAppComponent } from './aos-app.component';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { FooterComponent } from './footer/app-footer.component'
@@ -36,13 +34,13 @@ const jQuery = window['$'];
    WelcomeComponent,
     TrendingThumbnailComponent,
     FooterComponent,
-    DetailsPageComponent,
+    ProductDetailsComponent,
+    ProductComponent,
     NavBarComponent,
     ModalTriggerDirective,
     Error404Component,
     CollapsibleWellComponent,
     SimpleModalComponent,
-    LikeComponent,
     StarComponent,
     AddRemoveItemComponent,
     ConvertToSpacesPipe
@@ -57,12 +55,9 @@ const jQuery = window['$'];
   ],
   providers: [
     ShopService,
-    FlixRouteActivator,
-    FlixListResolver,
     AuthService,
     { provide: JQ_TOKEN, useValue: jQuery }
   ],
-  exports: [LikeComponent],
 
   bootstrap: [AOSAppComponent]
 })

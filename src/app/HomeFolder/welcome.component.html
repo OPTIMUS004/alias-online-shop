@@ -13,21 +13,9 @@
 			</form>
 		</div>
 	</div>
-	
-	<simple-modal elementId="searchBlock" class="modalContainer">
-		<h6>MATCHING RESULTS</h6>
-		<div class="container" *ngFor = "let found of foundSearch">	
-			<div class="modal-body" data-dismiss="modal">
-				<a class="text-dark" *ngFor="let session of foundSessions" [routerLink]="['/alias', session?.id]"  >{{session?.Title}}
-				</a>
-				<span *ngIf="foundSessions?.length===0">No such title here</span>
-			</div>
-		</div>
-	</simple-modal>
 	<hr/>
-	<h2 class="text-dark">Top Trending Products </h2>
-	<hr>	
 </div>
 <div>
-	<trending-thumbnail></trending-thumbnail>
+	<h3>Browse through the List of available products</h3>
+	<button class="btn btn-success"><a [routerLink]="['/alias/products']" >Click Here!</a></button>
 </div>

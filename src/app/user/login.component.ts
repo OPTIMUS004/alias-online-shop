@@ -20,8 +20,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 				float: left;
 				display: inline-block;
 			}
+			.changeColor{
+				color: #007bff;
+			}
 			.comment-two{
 				float: right;
+				color: skyblue;
 			}
 			.btn-primary{
 				background-color: green;
