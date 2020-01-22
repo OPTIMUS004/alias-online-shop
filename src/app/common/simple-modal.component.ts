@@ -35,7 +35,7 @@ export class SimpleModalComponent {
 	@Input() elementId: string;
 	@Input() closeOnBodyClick: string;
 	@ContentChild('modalcontainer', {static: true}) containerEl: ElementRef;
-
+	title = "";
 
 	constructor(@Inject(JQ_TOKEN) private $: any) {}
 

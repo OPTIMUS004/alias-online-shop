@@ -28,12 +28,17 @@ import { ActivatedRoute } from '@angular/router';
 				border-radius: 0;
 				background-clip: 0;
 			}
-			.btn-default{
-				background-color: #007bff;
-				border: 1px solid #007bff;
-				outline: 0;
-				border-radius: 0;
-
+			a{
+				text-decoration: none;
+			}
+			.btn{
+				color: #111;
+			}
+			.browse{
+				display: flex;
+				flex-direction: column;
+				justify-content center;
+				align-items: center;
 			}
 			#searchForm{
 				margin-bottom: 15px;
